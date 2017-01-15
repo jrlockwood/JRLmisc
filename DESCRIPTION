@@ -3,8 +3,9 @@ Type: Package
 Title: J.R.'s Miscellaneous Functions
 Version: 0.1.0
 Date: 2017-01-15
+Depends: R (>= 3.1.0), MASS, MCMCpack, geometry, graphics, stats, utils
 Author: J.R. Lockwood
 Maintainer: J.R. Lockwood <jrlockwood@ets.org>
-Description: Misc Functions
+Description: J.R.'s Miscellaneous Functions.
 License: GPL (>= 2) | file LICENSE
 

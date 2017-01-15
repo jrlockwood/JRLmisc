@@ -1,0 +1,16 @@
+export(l, lu, lsu, su, st, ma, nmis, nobs, pmis, pobs, csign, logit, expit, cs, ar, J, more, partial_integrate, inhull, mdiaR, gchol2, lintersect, summarize, obsize, logmeanexp, haversine, enclose, scatterplot, scatterpoints, cfill, winbugs.wishart.params, isgap, roundto, dfcmp, read.csvnogarb, fdrit, rbzs, na.show, put, descore, areg, deff, remap, chartoform, weighted.t.test, soundex, lex, cronbach, freq, ci, stringpad, meta.analyze.fixed, meta.analyze.random)
+
+importFrom("graphics", "abline", "lines", "plot", "points", "polygon","title")
+
+importFrom("stats", "aggregate", "as.formula", "ave", "coef", "cor",
+           "lm", "lowess", "median", "na.omit", "optim", "pnorm",
+           "qnorm", "quantile", "runif", "sd", "var", "weighted.mean")
+
+importFrom("utils", "object.size", "read.csv")
+
+importFrom("MCMCpack", "rwish")
+
+importFrom("geometry", "convhulln")
+
+importFrom("MASS", Null)
+
