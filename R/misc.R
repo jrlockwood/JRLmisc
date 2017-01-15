@@ -54,12 +54,12 @@ expit <- function(x){
     v/(1+v)
 }
 
-cs <- function(r,d){
+CS <- function(r,d){
     ## compound symmetry correlation matrix
     matrix(r,ncol=d,nrow=d)+(1-r)*diag(d)
 }
 
-ar <- function(phi,d){
+AR <- function(phi,d){
     ## AR(1) correlation matrix
     matrix(apply(expand.grid(1:d,1:d),1,function(x){phi^{abs(x[2]-x[1])}}),nrow=d,ncol=d,byrow=F)
 }
