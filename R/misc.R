@@ -2,7 +2,7 @@ l <- function(x){
     length(x)
 }
 
-lu <- function(x){
+lenu <- function(x){
     length(unique(x))
 }
 
