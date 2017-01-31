@@ -43,7 +43,8 @@ ustat_deg2 <- function(x, psi){
     ##
 
     ## see handnotes for derivations of unbiased estimators for various pieces
-    ## "Epp" denotes the E[psi(X1,X2)*psi(X1,X3)] - product of pairs sharing one element.    
+    ## "Epp"  denotes E[psi(X1,X2)*psi(X1,X3)] - product of pairs sharing one element.
+    ## "Epsq" denotes E[psi(X1,X2)^2]
     Epp     <- 0.0
     ind     <- 0L
     for(istar in 1:(n-1)){
@@ -57,16 +58,18 @@ ustat_deg2 <- function(x, psi){
         }
     }
     Epp  <- Epp / (n * (n-1) * (n-2))
+    Epsq <- mean(psivals^2)
 
     ## get estimates of other pieces needed for variance calculation
-    musq <- (1.0 / choose(n-2,2)) * ( (choose(n,2) * U^2) - mean(psivals^2) - 2*(n-2)*Epp )
-    ss1  <-             Epp - musq
-    ss2  <- mean(psivals^2) - musq
+    musq <- (1.0 / choose(n-2,2)) * ( (choose(n,2) * U^2) - Epsq - 2*(n-2)*Epp )
+    ss1  <-  Epp - musq ## Cov(psi(X1,X2), psi(X1,X3)) - this drives asymptotic variance
+    ss2  <- Epsq - musq ## Var(psi(X1,X2))
     
     return(list(psi         = psi,
                 psivals     = psivals,
                 U           = U,
                 Epp         = Epp,
+                Epsq        = Epsq,
                 musq        = musq,
                 ss1         = ss1,
                 ss2         = ss2,
