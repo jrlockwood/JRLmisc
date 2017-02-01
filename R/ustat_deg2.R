@@ -2,15 +2,14 @@ ustat_deg2 <- function(x, psi){
     ## compute degree k=2 U-statistic based on (n x p) data matrix "x" and
     ## function "psi", along with analytical and asymptotic variance.
     ## NOTE: variance calculations are degenerate unless n >= 4 I think.
+    ## NOTE: x may have missing values, but in such case, psi must be
+    ## defined such that it returns a non-missing value. If missing values
+    ## of psi result, the function stops
     
     if(!is.numeric(x)){
         stop("x must be numeric")
     }
-    
-    if(any(is.na(x))){
-        stop("missing values in 'x' not allowed")
-    }
-    
+        
     if(!is.matrix(x)){
         x <- matrix(x, ncol=1)
     }
@@ -30,6 +29,9 @@ ustat_deg2 <- function(x, psi){
     
     ij      <- t(combn(1L:n, 2))
     psivals <- apply(ij, 1, function(.ij){ psi(x[.ij[1],], x[.ij[2],]) })
+    if(any(is.na(psivals))){
+        stop("Evaluation of psi on pairs resulted in missing values")
+    }
     
     ## compute U-statistic
     U       <- mean(psivals)
