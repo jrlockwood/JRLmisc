@@ -160,7 +160,7 @@ isgap <- function(x){
 read.csvnogarb <- function(x,...){
     ## x is path to csv file.  gets rid of garbage chars before reading
     ## ...: additional arguments to read.csv
-    system(paste("cat ",x,"| tr -d \"#$&`'()*:/~\"  > /tmp/__.csv"))
+    system(paste("cat ",x,"| tr -d \"\\\`#$&'()*:/~\"  > /tmp/__.csv"))
     read.csv("/tmp/__.csv",...)
 }
 
