@@ -7,7 +7,7 @@ importFrom("stats", "aggregate", "as.formula", "ave", "coef", "cor",
            "qnorm", "quantile", "runif", "sd", "var", "weighted.mean",
            "rchisq", "rgamma", "rnorm")
 
-importFrom("utils", "object.size", "read.csv")
+importFrom("utils", "object.size", "read.csv", "combn")
 
 importFrom("MCMCpack", "rwish")
 
