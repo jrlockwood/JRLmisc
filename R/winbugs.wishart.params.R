@@ -30,7 +30,7 @@ winbugs.wishart.params <- function(target, nsim, reltol = 0.05){
         
         ## generate "nsim" *covariance* matrices from the wishart
         for(i in 1:nsim){
-            simV[[i]] <- solve(rwish(v = winbugs.df,  S = scalemat))
+            simV[[i]] <- solve(rWishart(1, df = winbugs.df,  Sigma = scalemat)[,,1])
         }
         
         ## get the medians of the diagonals and compare to target

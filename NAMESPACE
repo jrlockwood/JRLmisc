@@ -5,11 +5,9 @@ importFrom("graphics", "abline", "lines", "plot", "points", "polygon","title")
 importFrom("stats", "aggregate", "as.formula", "ave", "coef", "cor",
            "lm", "lowess", "median", "na.omit", "optim", "pnorm",
            "qnorm", "quantile", "runif", "sd", "var", "weighted.mean",
-           "rchisq", "rgamma", "rnorm")
+           "rchisq", "rgamma", "rnorm", "rWishart")
 
 importFrom("utils", "object.size", "read.csv", "combn")
-
-importFrom("MCMCpack", "rwish")
 
 importFrom("geometry", "convhulln")
 
