@@ -30,7 +30,24 @@ blp <- function(Y, lambda, mu, SigmaX, SigmaU, etol=1e-6){
     est.blp    <- as.vector(t(lambda) %*% ( (IminusQ %*% mu) + (Q %*% Y) ))
     part       <- (Q %*% SigmaU %*% t(Q)) + (IminusQ %*% SigmaX %*% t(IminusQ))
     mse.blp    <- sum(diag( (lambda %*% t(lambda)) %*% part))
+    ## check alt MSE calc:
+    mse.blp2   <- as.vector(t(lambda) %*% (SigmaX - (Q %*% SigmaX)) %*% lambda)
+    stopifnot(abs(mse.blp - mse.blp2) < 1e-10)
 
-    return(c(est.direct = est.direct, mse.direct = mse.direct, est.blp = est.blp, mse.blp = mse.blp, prmse.blp = (1 - mse.blp/mse.direct)))
+    ## PRMSE of BLP relative to assigning everyone the mean lambda'mu
+    mse.null   <- as.vector(t(lambda) %*% SigmaX %*% lambda)
+    prmse.null <- 1 - mse.blp/mse.null
+
+    ## PRMSE of BLP relative to direct estimator
+    prmse.direct <- 1 - mse.blp/mse.direct
+
+    return(c(est.direct = est.direct, mse.direct = mse.direct, est.blp = est.blp, mse.blp = mse.blp, prmse.null = prmse.null, prmse.direct = prmse.direct))
 }
     
+##
+## Y       <- rnorm(6)
+## lambda  <- c(1,0,3,-2,0,3)
+## mu      <- c(0,1,4,0,0,1)
+## SigmaX  <- vX[1:6,1:6]
+## SigmaU  <- vU[1:6,1:6] / 10
+## blp(Y, lambda, mu, SigmaX, SigmaU)
