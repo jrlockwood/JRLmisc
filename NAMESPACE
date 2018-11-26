@@ -1,15 +1,23 @@
-export(l, lenu, lsu, su, st, ma, nmis, nobs, pmis, pobs, csign, logit, expit, CS, AR, J, more, partial_integrate, inhull, mdiaR, gchol2, lintersect, summarize, obsize, logmeanexp, haversine, enclose, scatterplot, scatterpoints, cfill, isgap, roundto, dfcmp, read.csvnogarb, fdrit, rbzs, na.show, put, descore, areg, deff, remap, chartoform, weighted.t.test, soundex, lex, cronbach, freq, ci, stringpad, meta.analyze.fixed, meta.analyze.random, rmultinomial, ldmultinomial, rdirichlet, lddirichlet, rdirmult, lddirmult, rmultnorm, ldmultnorm, rmultt, ldmultt, rwishart, ldwishart, mvncd, ustat_deg2, caterpillar, pairsubsets, blp)
+export(l, lenu, lsu, su, st, ma, nmis, nobs, pmis, pobs, csign, logit, expit, CS, AR, J, more, partial_integrate, inhull, mdiaR, gchol2, lintersect, summarize, obsize, logmeanexp, haversine, enclose, scatterplot, scatterpoints, cfill, isgap, roundto, dfcmp, read.csvnogarb, fdrit, rbzs, na.show, put, descore, areg, deff, remap, chartoform, weighted.t.test, soundex, lex, cronbach, freq, ci, stringpad, meta.analyze.fixed, meta.analyze.random, rmultinomial, ldmultinomial, rdirichlet, lddirichlet, rdirmult, lddirmult, rmultnorm, ldmultnorm, rmultt, ldmultt, rwishart, ldwishart, mvncd, ustat_deg2, caterpillar, pairsubsets, blp, create.stzdesign, test.stzdesign, create.pmixdesign.uni, vam.multivariate.ancova, univariate.vc, multivariate.vc, multivariate.ar, multivariate.arat, multivariate.vc.general, get.strata, schoolnames.regularize, schoolnames.match, sem.approx, sem.approx2, pxgu, npmle_deconv_biv, normal_deconv, var_reg, var_ipw_ratio, var_bcdr_ratio)
 
-importFrom("graphics", "abline", "lines", "plot", "points", "polygon","title")
+importFrom("graphics", "abline", "lines", "plot", "points", "polygon","title", "hist", "segments", "text")
+
+importFrom("grDevices", "dev.off", "pdf", "postscript")
 
 importFrom("stats", "aggregate", "as.formula", "ave", "coef", "cor",
            "lm", "lowess", "median", "na.omit", "optim", "pnorm",
            "qnorm", "quantile", "runif", "sd", "var", "weighted.mean",
-           "rchisq", "rgamma", "rnorm")
+           "rchisq", "rgamma", "rnorm", "approxfun", "dcauchy",
+           "dnorm", "fitted", "integrate", "lm.fit", "pcauchy",
+           "qqline", "qqnorm", "resid")
 
 importFrom("utils", "object.size", "read.csv", "combn")
 
 importFrom("geometry", "convhulln")
 
-importFrom("MASS", Null)
+importFrom("MASS", "Null")
+
+importFrom("nlme", "gls", "lme", "varIdent")
+
+importFrom("Matrix", "Matrix", "Cholesky", "condest", "bdiag", "sparse.model.matrix", "Diagonal", "cBind")
 
