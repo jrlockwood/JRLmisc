@@ -29,7 +29,13 @@ pairsubsets <- function(R, K){
                 if(needed > 0){
                     pad       <- c(rep(0,i), curcounts[(i+1):R])
                     if(needed <= sum(pad > 0)){
-                        take <- sort(sample(which(pad > 0), size=needed, replace=FALSE))
+                        w <- which(pad > 0)
+                        ## to avoid sample() bizarre behavior with a positive integer argument
+                        if(length(w)==1){
+                            take <- w
+                        } else {
+                            take <- sort(sample(w, size=needed, replace=FALSE))
+                        }
                         assg[[i]] <- take
                         curcounts[take] <- curcounts[take] - 1
                     }
