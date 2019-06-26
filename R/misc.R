@@ -78,7 +78,7 @@ more <- function(x) {
 }
 
 obsize<-function(){
-    as.matrix(sort(sapply(objects(name=".GlobalEnv"), function(x){ object.size(get(x)) })))
+    as.matrix(sort(sapply(objects(name=".GlobalEnv", all.names=TRUE), function(x){ object.size(get(x)) })))
 }
 
 logmeanexp <- function(x){
