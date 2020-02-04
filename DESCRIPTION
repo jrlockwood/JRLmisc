@@ -1,8 +1,8 @@
 Package: JRLmisc
 Type: Package
 Title: J.R.'s Miscellaneous Functions
-Version: 0.1-10
-Date: 2019-11-21
+Version: 0.1-11
+Date: 2020-02-04
 Depends: R (>= 3.1.0), MASS, Matrix, geometry, graphics, grDevices, nlme, stats, utils
 Author: J.R. Lockwood
 Maintainer: J.R. Lockwood <jrlockwood@ets.org>
