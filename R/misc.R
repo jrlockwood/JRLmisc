@@ -1,3 +1,8 @@
+func.convert_from_10_to_160 <- function(score.10){
+  out <- ((round(score.10 * 3) * 5) + 10) ## round at the end (to the nearest five)
+  return(out)
+}
+
 l <- function(x){
     length(x)
 }
